@@ -89,9 +89,9 @@ func main() {
 			} else if answer == "n" || answer == "no" {
 				fmt.Println("Quitting... Bye!")
 				return
-			} else {
-				fmt.Println("Invalid input. Please enter y or n.")
 			}
+
+			fmt.Println("Invalid input. Please enter y or n.")
 		}
 
 	}
