@@ -27,7 +27,7 @@ func main() {
 		_, err := fmt.Scanln(&n)
 		if err != nil {
 			fmt.Println("Please enter a valid number.")
-			fmt.Scanln(&discard)
+			_, _ = fmt.Scanln(&discard)
 			continue
 		}
 
@@ -57,7 +57,7 @@ func main() {
 			_, err = fmt.Scanln(&guess)
 			if err != nil {
 				fmt.Println("Please enter a valid integer number.")
-				fmt.Scanln(&discard)
+				_, _ = fmt.Scanln(&discard)
 				i--
 				continue
 			}
@@ -87,7 +87,7 @@ func main() {
 			answer := ""
 			_, err = fmt.Scanln(&answer)
 			if err != nil {
-				fmt.Scanln(&discard)
+				_, _ = fmt.Scanln(&discard)
 				continue
 			}
 
