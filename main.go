@@ -9,6 +9,7 @@ func main() {
 	randomNumber := rand.Intn(101)
 
 	var n int
+	var discard string
 	var difficultyLevel string
 	var numberOfAttempts int
 
@@ -26,7 +27,6 @@ func main() {
 		_, err := fmt.Scanln(&n)
 		if err != nil {
 			fmt.Println("Please enter a valid number.")
-			var discard string
 			fmt.Scanln(&discard)
 			continue
 		}
@@ -54,7 +54,13 @@ func main() {
 		var guess int
 		for i := 0; i < numberOfAttempts; i++ {
 			fmt.Print("\nEnter your guess: ")
-			fmt.Scanln(&guess)
+			_, err = fmt.Scanln(&guess)
+			if err != nil {
+				fmt.Println("Please enter a valid integer number.")
+				fmt.Scanln(&discard)
+				i--
+				continue
+			}
 
 			if guess == randomNumber {
 				fmt.Printf("Congratulations! You guessed the correct number in %d attempts.", i+1)
@@ -79,7 +85,11 @@ func main() {
 		for {
 			fmt.Print("\nWould you like to play again? (y/n) ")
 			answer := ""
-			fmt.Scanln(&answer)
+			_, err = fmt.Scanln(&answer)
+			if err != nil {
+				fmt.Scanln(&discard)
+				continue
+			}
 
 			if answer == "y" || answer == "yes" {
 				fmt.Println("Welcome to the Number Guessing Game! ")
