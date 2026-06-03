@@ -55,11 +55,15 @@ func main() {
 		if guess == randomNumber {
 			fmt.Printf("Congratulations! You guessed the correct number in %d attempts.", i+1)
 			return
-		} else if guess < randomNumber {
-			fmt.Printf("Incorrect! The number is greater than %d", guess)
-		} else {
-			fmt.Printf("Incorrect! The number is less than %d", guess)
 		}
+
+		if guess < randomNumber {
+			fmt.Printf("Incorrect! The number is greater than %d", guess)
+			continue
+		}
+
+		fmt.Printf("Incorrect! The number is less than %d", guess)
 	}
 
+	fmt.Printf("\nGame over... You've run out of attempts.\nThe number was %d.\n", randomNumber)
 }
